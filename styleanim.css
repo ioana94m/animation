@@ -1,0 +1,222 @@
+/* body {
+  background: lightblue;
+  text-align: center;
+} */
+
+/* .wrapper {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+} */
+
+  /* APLICATE PE POZA CU NORISORUL */
+  /* transform: TRANSLATE(200px, 200px); */
+  /* translate = move the element from a position to another on the page*/
+  /* translateX - move an element to the RIGHT if the value is positive, if the value is negative it is moved to the LEFT*/
+  /* translateY - move an elemente on vertical - DOWN or UP */
+  /* you can use only translate (x,y)*/
+  /* transform: scale(2, 0.2); */
+  /* for greater than 1, there is a growth, for less than 1, the elements will shrink*/
+  /* you cand use them even to stretch - by adding 2 values */
+  /* transform: ROTATEZ(-45deg); */
+  /* rotateX - x axis - horizontal */
+  /* rotateY - y axis -vertical  */
+  /* for both - nothing wow happens with this picture */
+  /* rotateZ - in sensul acelor de ceasornic, depinde de valoare - poz sau neg*/
+  /* transform: rotateZ(-90deg) translateY(200px) scale(2); */
+  /* se aplica in ordinea in care sunt scrise */
+
+  /* .circle {
+    width: 100px;
+    padding: 50px 0;
+    line-height: 0;
+    margin: 60px auto;
+    background: pink;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 1s, transform 0.3s 1s linear;
+  } */
+
+/* it will take 1s for the background-color to change, and 1s delay to begin to rotate for 0.3s - linear - adica cu aceeasi `viteza` */
+/* ease-in - starts slow and then speeds up */
+/* ease-out - */
+/* mai sunt si alte variante - vezi W3school */
+
+  /* .circle:hover {
+    background: salmon;
+    transform: rotate(360deg);
+  } */
+
+html, body{
+    height: 100%;
+    width:100%;
+    overflow: hidden;
+    margin: 0;
+  }
+
+.grass, .sky, .road{
+    position: relative;
+  }
+
+.sky {
+  height: 40%;
+  background-color: skyblue;
+}
+
+.sun {
+  position: absolute; 
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;   
+	width:80px;
+	height:80px;
+	border-radius:50%;	
+	background:yellow;
+	opacity:0.9;			
+	box-shadow: 0px 0px 40px 25px #FFFF99;  
+
+}
+
+.grass {
+  height: 30%;
+  background-color: seagreen;
+  position: relative;
+}
+  
+/* .trunk {
+  position: absolute;
+  border-color: brown transparent;
+  border-style: solid;
+  height: 10px;
+  width: 10px;
+}
+.branch-top {
+  border-color: green transparent;
+  border-style: solid;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+  left: 17%;
+  bottom: 400px;
+  border-bottom-left-radius: 50% 100px;
+  border-bottom-right-radius: 50% 100px;
+}
+
+.branch-middle {
+  border-color: green transparent;
+  border-style: solid;
+  height: 0px;
+  position: absolute;
+  width: 0;
+  border-width: 0 100px 120px;
+  left: 17%;
+  bottom: 80px;
+  border-bottom-left-radius: 50% 60px;
+  border-bottom-right-radius: 50% 60px;
+}
+.branch-bottom {
+  border-color: green transparent;
+  border-style: solid;
+  height: 0px;
+  position: absolute;
+  width: 0;
+  border-width: 0 100px 120px;
+  left: 17%;
+  bottom: 30px;
+  border-bottom-left-radius: 50% 20px;
+  border-bottom-right-radius: 50% 20px; */
+
+
+.road {
+  height: 30%;
+  background: dimgray;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid gray;
+  width: 100%;
+}
+
+.lines {
+  box-sizing: border-box;
+  border-bottom: 5px dashed #fff;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 40%;
+}
+
+.mario {
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  animation-name: drive1;
+  
+  /* animation-fill-mode: both; */
+  /* both will make the element stay at the end */
+  /* there is backwards too and you can also apply both - for both and a delay of 2s, it will go forward, stop for 2s and go forward again */
+  /* animation-delay: 1s; delay is always put after de animation-duration*/
+  
+  /* how many times does the animation repeat? infinite or you can specify values -3, 4...*/
+  /* animation-direction: normal; */
+  /* poate fi si reverse, alternate - merge inainte si dupa se `intoarce` inapoi */
+  
+  /* cu valoarea cubic-bazier poti manipula viteza in orice punct */
+  animation: drive1 4s 3 ease-in, jump 2s 1.2s ease;
+  /* animation le cuprinde pe toate */
+  /* animation-iteration-count: 3;     animation-duration: 4s;  animation-timing-function: ease-in;   */
+}
+
+@keyframes drive1 {
+    0% {transform: translateX(0px);}
+   100% {transform: translateX(1536px);}
+}
+@keyframes jump {
+  0% {top: -50px;}
+  50% {top: -100px;}
+  100% {top: -50px;}
+}
+
+.luigi {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  animation-name: drive2;
+  animation-duration: 5s;
+  /* animation-fill-mode:backwards; */
+  animation-iteration-count: 3;
+  animation-timing-function: ease-out;
+}
+
+@keyframes drive2 {
+  0% {transform: translateX(0px);}
+  25% {transform: rotateZ(-20deg);}
+  /* 60% {transform: translateX(300px);} */
+  100% {transform: translateX(1536px);}
+}
+
+.cloud {
+  position: absolute;
+}
+
+.cloud:nth-child(1){
+  width: 200px;
+  top: 120px;
+  opacity: 0.5; 
+  animation: wind 80s linear 3s infinite reverse;
+}
+
+.cloud:nth-child(2){
+  width:300px;
+  top: 0;
+  animation: wind 50s linear 2s infinite reverse;
+}
+
+@keyframes wind{
+  from {left: -300px}
+  to {left: 100%}
+}
+
+
